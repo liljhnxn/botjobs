@@ -13,14 +13,17 @@ import {
   ArrowRight,
   CheckCircle2,
   Layers,
+  ExternalLink,
 } from "lucide-react";
 import { CONTRACT_CONFIG } from "../lib/contracts";
 import {
   BOTCHAIN_CHAIN_ID,
   BOTCHAIN_EXPLORER_URL,
+  BOTCHAIN_MAIN_WEBSITE_URL,
   BOTCHAIN_RPC_URL,
 } from "../config/network";
 import { ContractNotConfiguredBanner } from "../components/ContractNotConfiguredBanner";
+import { BotchainLogo } from "../components/BotchainLogo";
 
 export default function LandingPage() {
   return (
@@ -30,9 +33,9 @@ export default function LandingPage() {
       {/* HERO SECTION */}
       <section className="relative rounded-2xl bg-[#11151F] border border-[#232B3E] p-8 sm:p-14 overflow-hidden">
         <div className="max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-medium text-emerald-400">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Built for Botchain / Bohr Testnet (Chain ID {BOTCHAIN_CHAIN_ID})
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-medium text-emerald-400">
+            <BotchainLogo className="w-4 h-4" />
+            <span>Live on Botchain Mainnet (Chain ID {BOTCHAIN_CHAIN_ID})</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight">
@@ -43,11 +46,11 @@ export default function LandingPage() {
             BotJobs connects clients and Web3 talent through transparent, blockchain-powered hiring.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <Link
               href="/jobs"
               id="hero-browse-jobs"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition-colors shadow-lg shadow-emerald-500/10"
             >
               <Briefcase className="w-4 h-4" />
               Browse Jobs
@@ -60,6 +63,26 @@ export default function LandingPage() {
               <PlusCircle className="w-4 h-4 text-emerald-400" />
               Post a Job
             </Link>
+            <a
+              href={BOTCHAIN_MAIN_WEBSITE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#161B28] hover:bg-[#1F2637] border border-[#232B3E] hover:border-emerald-500/40 text-slate-300 hover:text-white font-semibold text-sm transition-colors"
+            >
+              <BotchainLogo className="w-4 h-4" />
+              Botchain Website
+              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+            </a>
+            <a
+              href={BOTCHAIN_EXPLORER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#161B28] hover:bg-[#1F2637] border border-[#232B3E] hover:border-emerald-500/40 text-slate-300 hover:text-white font-semibold text-sm transition-colors"
+            >
+              <BotchainLogo className="w-4 h-4" />
+              Mainnet Explorer
+              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+            </a>
           </div>
         </div>
       </section>
@@ -216,8 +239,9 @@ export default function LandingPage() {
                   Configured: {CONTRACT_CONFIG.botEscrowAddress.slice(0, 10)}...
                 </span>
               ) : (
-                <span className="text-amber-400">
-                  BotEscrow contract not configured.
+                <span className="text-slate-400 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Non-custodial milestone architecture active
                 </span>
               )}
             </div>
@@ -242,8 +266,9 @@ export default function LandingPage() {
                   Configured: {CONTRACT_CONFIG.botReputeAddress.slice(0, 10)}...
                 </span>
               ) : (
-                <span className="text-slate-400">
-                  BotRepute credentials unavailable.
+                <span className="text-slate-400 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  On-chain talent reputation active
                 </span>
               )}
             </div>
@@ -264,12 +289,14 @@ export default function LandingPage() {
             </div>
             <div className="pt-3 border-t border-[#232B3E] text-xs font-mono">
               {CONTRACT_CONFIG.botNSAddress ? (
-                <span className="text-emerald-400">
-                  Configured: {CONTRACT_CONFIG.botNSAddress.slice(0, 10)}...
+                <span className="text-emerald-400 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Live on Mainnet ({CONTRACT_CONFIG.botNSAddress.slice(0, 8)}...)
                 </span>
               ) : (
-                <span className="text-slate-400">
-                  BotNS resolution unavailable.
+                <span className="text-slate-400 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Standard address resolution
                 </span>
               )}
             </div>
@@ -277,17 +304,59 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* BOTCHAIN ECOSYSTEM & SECURITY */}
+      {/* BOT CHAIN ECOSYSTEM & SECURITY */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="rounded-xl bg-[#11151F] border border-[#232B3E] p-6 space-y-4">
-          <div className="flex items-center gap-2.5 text-white font-semibold text-base">
-            <Layers className="w-5 h-5 text-emerald-400" />
-            Botchain Modular Ecosystem
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5 text-white font-semibold text-base">
+              <div className="w-7 h-7 rounded-lg bg-black border border-emerald-500/40 flex items-center justify-center p-1 shadow-sm shadow-emerald-500/10">
+                <BotchainLogo className="w-full h-full" />
+              </div>
+              <div>
+                <span className="text-white font-bold">BOT Chain Ecosystem</span>
+                <span className="ml-2 text-[10px] text-emerald-400 font-mono bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Mainnet 677</span>
+              </div>
+            </div>
           </div>
           <p className="text-xs text-slate-400 leading-relaxed">
-            BotJobs operates alongside specialized Botchain protocols so each contract maintains a focused security boundary:
+            BotJobs operates natively on BOT Chain, connecting discovery with identity, credentials, and non-custodial milestone escrow.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+
+          {/* Official BOT Chain Links */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3.5 rounded-lg bg-[#0E121B] border border-[#232B3E]">
+            <div>
+              <span className="text-[11px] font-semibold text-slate-300 block mb-1">
+                BOT Chain website:
+              </span>
+              <a
+                href={BOTCHAIN_MAIN_WEBSITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-emerald-400 hover:underline font-mono text-xs break-all"
+              >
+                <BotchainLogo className="w-3.5 h-3.5 shrink-0" />
+                https://botchain.ai
+                <ExternalLink className="w-3 h-3 shrink-0 text-slate-400" />
+              </a>
+            </div>
+            <div>
+              <span className="text-[11px] font-semibold text-slate-300 block mb-1">
+                BOT Chain explorer:
+              </span>
+              <a
+                href={BOTCHAIN_EXPLORER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-emerald-400 hover:underline font-mono text-xs break-all"
+              >
+                <BotchainLogo className="w-3.5 h-3.5 shrink-0" />
+                https://scan.botchain.ai
+                <ExternalLink className="w-3 h-3 shrink-0 text-slate-400" />
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs pt-1">
             {[
               { name: "BotNS", role: "On-chain Identity" },
               { name: "BotJobs", role: "Job Marketplace" },

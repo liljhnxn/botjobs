@@ -10,7 +10,7 @@ import "./interfaces/IBotNS.sol";
 
 /**
  * @title BotJobs
- * @notice Decentralized Web3 Jobs and Talent Marketplace on Botchain (Bohr Testnet).
+ * @notice Decentralized Web3 Jobs and Talent Marketplace on Botchain Mainnet.
  * @dev BotJobs handles job discovery, creation, applications, freelancer profiles, hiring workflow,
  *      and marketplace state. Payment custody, milestones, releases, refunds, and disputes are
  *      delegated to BotEscrow when configured. BotJobs never custodies job payment funds.

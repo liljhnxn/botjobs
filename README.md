@@ -1,6 +1,6 @@
 # BotJobs — Decentralized Web3 Jobs & Talent Marketplace on Botchain
 
-BotJobs is a decentralized Web3 jobs and talent marketplace built natively for the **Botchain / Bohr Testnet (Chain ID 968)** ecosystem. It connects clients and Web3 builders through verifiable smart contracts, on-chain freelancer profiles, structured proposal workflows, and modular integration with **BotEscrow**, **BotRepute**, and **BotNS**.
+BotJobs is a decentralized Web3 jobs and talent marketplace built natively for the **Botchain Mainnet (Chain ID 677)** ecosystem. It connects clients and Web3 builders through verifiable smart contracts, on-chain freelancer profiles, structured proposal workflows, and modular integration with **BotEscrow**, **BotRepute**, and **BotNS**.
 
 ---
 
@@ -21,10 +21,10 @@ All network values are centralized in `hardhat.config.ts` and `frontend/config/n
 
 | Parameter | Value |
 | :--- | :--- |
-| **Network Name** | Botchain / Bohr Testnet |
-| **Chain ID** | `968` |
-| **RPC Endpoint** | `https://rpc.bohr.life` |
-| **Block Explorer** | `https://scan.bohr.life` |
+| **Network Name** | Botchain Mainnet |
+| **Chain ID** | `677` |
+| **RPC Endpoint** | `https://rpc.botchain.ai` |
+| **Block Explorer** | `https://scan.botchain.ai` |
 | **Native Token** | `BOT` |
 
 The frontend strictly validates the connected wallet's network before any contract write and never silently falls back to another network.
@@ -122,21 +122,22 @@ npm install
 Copy `.env.example` to `.env` in the root directory:
 ```env
 PRIVATE_KEY=
-BOTCHAIN_RPC_URL=https://rpc.bohr.life
-BOTJOBS_CONTRACT_ADDRESS=
+BOTCHAIN_RPC_URL=https://rpc.botchain.ai
+BOTJOBS_CONTRACT_ADDRESS=0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688
 BOTESCROW_CONTRACT_ADDRESS=
 BOTREPUTE_CONTRACT_ADDRESS=
-BOTNS_CONTRACT_ADDRESS=
+BOTNS_CONTRACT_ADDRESS=0x2ce45ff1847273f0fd11714744c4f238d004e026
 ```
 
 Copy `frontend/.env.example` to `frontend/.env.local`:
 ```env
-NEXT_PUBLIC_BOTCHAIN_RPC_URL=https://rpc.bohr.life
-NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL=https://scan.bohr.life
-NEXT_PUBLIC_BOTJOBS_ADDRESS=
+NEXT_PUBLIC_BOTCHAIN_CHAIN_ID=677
+NEXT_PUBLIC_BOTCHAIN_RPC_URL=https://rpc.botchain.ai
+NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL=https://scan.botchain.ai
+NEXT_PUBLIC_BOTJOBS_ADDRESS=0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688
 NEXT_PUBLIC_BOT_ESCROW_ADDRESS=
 NEXT_PUBLIC_BOT_REPUTE_ADDRESS=
-NEXT_PUBLIC_BOT_NS_ADDRESS=
+NEXT_PUBLIC_BOT_NS_ADDRESS=0x2ce45ff1847273f0fd11714744c4f238d004e026
 ```
 
 ### 3. Compile & Test Smart Contracts
@@ -151,8 +152,8 @@ npm run typecheck
 # Local Hardhat Network verification
 npm run deploy:local
 
-# Botchain / Bohr Testnet (Chain ID 968) - requires funded PRIVATE_KEY in .env
-npm run deploy:bohr
+# Botchain Mainnet (Chain ID 677) - requires funded PRIVATE_KEY in .env
+npm run deploy:mainnet
 ```
 
 ### 5. Run & Build Frontend

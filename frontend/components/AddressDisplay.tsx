@@ -64,7 +64,7 @@ export function AddressDisplay({
           href={getExplorerAddressUrl(validAddr)}
           target="_blank"
           rel="noopener noreferrer"
-          title="View on BohrScan"
+          title="View on Botchain Explorer"
           onClick={(e) => e.stopPropagation()}
           className="text-slate-400 hover:text-emerald-400 transition-colors"
         >

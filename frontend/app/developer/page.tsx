@@ -14,10 +14,12 @@ import { CONTRACT_CONFIG, BOTJOBS_ABI } from "../../lib/contracts";
 import {
   BOTCHAIN_CHAIN_ID,
   BOTCHAIN_EXPLORER_URL,
+  BOTCHAIN_MAIN_WEBSITE_URL,
   BOTCHAIN_RPC_URL,
   BOTCHAIN_NATIVE_SYMBOL,
 } from "../../config/network";
 import { AddressDisplay } from "../../components/AddressDisplay";
+import { BotchainLogo } from "../../components/BotchainLogo";
 
 export default function DeveloperPage() {
   const readFunctions = BOTJOBS_ABI.filter(
@@ -63,7 +65,7 @@ export default function DeveloperPage() {
           <div className="space-y-2.5 text-xs font-mono">
             <div className="flex items-center justify-between p-2.5 rounded bg-[#161B28]">
               <span className="text-slate-400">Network</span>
-              <span className="text-white">Botchain / Bohr Testnet</span>
+              <span className="text-white">Botchain Mainnet</span>
             </div>
             <div className="flex items-center justify-between p-2.5 rounded bg-[#161B28]">
               <span className="text-slate-400">Chain ID</span>
@@ -76,14 +78,27 @@ export default function DeveloperPage() {
               <span className="text-slate-200">{BOTCHAIN_RPC_URL}</span>
             </div>
             <div className="flex items-center justify-between p-2.5 rounded bg-[#161B28]">
-              <span className="text-slate-400">Block Explorer</span>
+              <span className="text-slate-400">BOT Chain website</span>
+              <a
+                href={BOTCHAIN_MAIN_WEBSITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 hover:underline inline-flex items-center gap-1.5"
+              >
+                <BotchainLogo className="w-3.5 h-3.5" />
+                https://botchain.ai <ExternalLink className="w-3 h-3 text-slate-400" />
+              </a>
+            </div>
+            <div className="flex items-center justify-between p-2.5 rounded bg-[#161B28]">
+              <span className="text-slate-400">BOT Chain explorer</span>
               <a
                 href={BOTCHAIN_EXPLORER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-400 hover:underline inline-flex items-center gap-1"
+                className="text-emerald-400 hover:underline inline-flex items-center gap-1.5"
               >
-                {BOTCHAIN_EXPLORER_URL} <ExternalLink className="w-3 h-3" />
+                <BotchainLogo className="w-3.5 h-3.5" />
+                https://scan.botchain.ai <ExternalLink className="w-3 h-3 text-slate-400" />
               </a>
             </div>
             <div className="flex items-center justify-between p-2.5 rounded bg-[#161B28]">
@@ -111,8 +126,8 @@ export default function DeveloperPage() {
               {CONTRACT_CONFIG.botEscrowAddress ? (
                 <AddressDisplay address={CONTRACT_CONFIG.botEscrowAddress} />
               ) : (
-                <span className="text-amber-400">
-                  BotEscrow contract not configured.
+                <span className="text-slate-400 text-xs">
+                  Configurable via admin setEcosystemContracts()
                 </span>
               )}
             </div>

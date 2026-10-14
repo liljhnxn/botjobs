@@ -7,7 +7,7 @@ import { Footer } from "../components/Footer";
 export const metadata: Metadata = {
   title: "BotJobs | Decentralized Web3 Jobs & Talent Marketplace on Botchain",
   description:
-    "BotJobs connects clients and Web3 talent through transparent, blockchain-powered hiring on Botchain (Bohr Testnet).",
+    "BotJobs connects clients and Web3 talent through transparent, blockchain-powered hiring on Botchain Mainnet.",
   icons: {
     icon: "/icon.svg",
   },

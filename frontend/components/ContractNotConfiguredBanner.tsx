@@ -18,7 +18,7 @@ export function ContractNotConfiguredBanner() {
               BotJobs Contract Address Not Configured
             </h3>
             <p className="text-xs text-slate-300 leading-relaxed">
-              No <code className="font-mono text-amber-200">NEXT_PUBLIC_BOTJOBS_ADDRESS</code> is currently set in your environment. Deploy <code className="font-mono">BotJobs.sol</code> to Botchain / Bohr Testnet (Chain ID 968) and add the deployed address to <code className="font-mono">.env.local</code>.
+              No <code className="font-mono text-amber-200">NEXT_PUBLIC_BOTJOBS_ADDRESS</code> is currently set in your environment. Deploy <code className="font-mono">BotJobs.sol</code> to Botchain Mainnet (Chain ID 677) and add the deployed address to <code className="font-mono">.env.local</code>.
             </p>
           </div>
         </div>

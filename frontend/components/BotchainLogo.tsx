@@ -1,0 +1,36 @@
+import React from "react";
+
+interface BotchainLogoProps {
+  className?: string;
+  size?: number;
+}
+
+/**
+ * Official 3D Isometric Ribbon "B" Logo for Botchain.
+ */
+export function BotchainLogo({ className = "w-5 h-5", size }: BotchainLogoProps) {
+  return (
+    <svg
+      viewBox="0 0 400 400"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`shrink-0 ${className}`}
+      style={size ? { width: size, height: size } : undefined}
+    >
+      {/* Top Ribbon Segment */}
+      <polygon points="158,68 282,140 282,194 158,122" fill="#00D287" />
+      <polygon points="282,140 282,194 241,218 241,164" fill="#009F6B" />
+      <polygon points="241,164 241,218 158,170 158,122" fill="#007048" />
+
+      {/* Middle Ribbon Segment */}
+      <polygon points="158,164 282,236 282,290 158,218" fill="#00D287" />
+      <polygon points="282,236 282,290 241,314 241,260" fill="#009F6B" />
+      <polygon points="241,260 241,314 116,242 116,194" fill="#007048" />
+
+      {/* Bottom Ribbon Segment */}
+      <polygon points="116,236 241,308 241,362 116,290" fill="#00D287" />
+      <polygon points="241,308 241,362 200,386 200,332" fill="#009F6B" />
+      <polygon points="116,236 116,290 158,314 158,260" fill="#007048" />
+    </svg>
+  );
+}

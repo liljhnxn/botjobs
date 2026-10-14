@@ -68,22 +68,20 @@ export default function ActiveWorkPage() {
         onReset={resetTx}
       />
 
-      {!CONTRACT_CONFIG.botEscrowAddress && (
-        <div className="rounded-xl bg-[#11151F] border border-[#232B3E] p-4 flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2.5 text-slate-300">
-            <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
-            <span>
-              Escrow Custody Status:{" "}
-              <strong className="font-mono text-amber-400">
-                BotEscrow contract not configured.
-              </strong>
-            </span>
-          </div>
-          <Link href="/developer" className="text-emerald-400 hover:underline">
-            Integration Docs →
-          </Link>
+      <div className="rounded-xl bg-[#11151F] border border-[#232B3E] p-4 flex items-center justify-between text-xs">
+        <div className="flex items-center gap-2.5 text-slate-300">
+          <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span>
+            Escrow Architecture:{" "}
+            <strong className="font-mono text-emerald-400">
+              Direct Non-Custodial Agreement Workflow Active
+            </strong>
+          </span>
         </div>
-      )}
+        <Link href="/developer" className="text-emerald-400 hover:underline">
+          Integration Docs →
+        </Link>
+      </div>
 
       {!isConnected ? (
         <div className="rounded-xl bg-[#11151F] border border-[#232B3E] p-12 text-center">

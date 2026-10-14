@@ -1,15 +1,17 @@
 import { defineChain } from "viem";
 
-export const BOTCHAIN_CHAIN_ID = 968 as const;
+export const BOTCHAIN_CHAIN_ID = 677 as const;
 export const BOTCHAIN_RPC_URL =
-  process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.bohr.life";
+  process.env.NEXT_PUBLIC_BOTCHAIN_RPC_URL || "https://rpc.botchain.ai";
 export const BOTCHAIN_EXPLORER_URL =
-  process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.bohr.life";
+  process.env.NEXT_PUBLIC_BOTCHAIN_EXPLORER_URL || "https://scan.botchain.ai";
+export const BOTCHAIN_MAIN_WEBSITE_URL =
+  process.env.NEXT_PUBLIC_BOTCHAIN_WEBSITE_URL || "https://botchain.ai";
 export const BOTCHAIN_NATIVE_SYMBOL = "BOT" as const;
 
-export const botchainTestnet = defineChain({
+export const botchainMainnet = defineChain({
   id: BOTCHAIN_CHAIN_ID,
-  name: "Botchain / Bohr Testnet",
+  name: "Botchain Mainnet",
   nativeCurrency: {
     decimals: 18,
     name: "Botchain Token",
@@ -25,12 +27,14 @@ export const botchainTestnet = defineChain({
   },
   blockExplorers: {
     default: {
-      name: "BohrScan",
+      name: "BotchainScan",
       url: BOTCHAIN_EXPLORER_URL,
     },
   },
-  testnet: true,
+  testnet: false,
 });
+
+export const activeChain = botchainMainnet;
 
 export function getExplorerAddressUrl(address: string): string {
   return `${BOTCHAIN_EXPLORER_URL.replace(/\/$/, "")}/address/${address}`;

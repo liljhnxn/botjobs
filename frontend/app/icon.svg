@@ -1,11 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <defs>
-    <linearGradient id="botjobs-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#10B981" />
-      <stop offset="100%" stop-color="#06B6D4" />
-    </linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="8" fill="#090B10" />
-  <rect x="1" y="1" width="30" height="30" rx="7" fill="none" stroke="#232B3E" stroke-width="1.5" />
-  <path d="M9 7h7a4.5 4.5 0 0 1 3.8 6.9A5 5 0 0 1 17 25H9V7zm3.5 3v5h3.5a2.5 2.5 0 1 0 0-5h-3.5zm0 8v5H17a2.5 2.5 0 1 0 0-5h-4.5z" fill="url(#botjobs-grad)" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" rx="80" fill="#090B10" />
+  <rect x="8" y="8" width="384" height="384" rx="72" fill="none" stroke="#232B3E" stroke-width="8" />
+
+  <!-- Top Ribbon Segment -->
+  <polygon points="158,68 282,140 282,194 158,122" fill="#00D287" />
+  <polygon points="282,140 282,194 241,218 241,164" fill="#009F6B" />
+  <polygon points="241,164 241,218 158,170 158,122" fill="#007048" />
+
+  <!-- Middle Ribbon Segment -->
+  <polygon points="158,164 282,236 282,290 158,218" fill="#00D287" />
+  <polygon points="282,236 282,290 241,314 241,260" fill="#009F6B" />
+  <polygon points="241,260 241,314 116,242 116,194" fill="#007048" />
+
+  <!-- Bottom Ribbon Segment -->
+  <polygon points="116,236 241,308 241,362 116,290" fill="#00D287" />
+  <polygon points="241,308 241,362 200,386 200,332" fill="#009F6B" />
+  <polygon points="116,236 116,290 158,314 158,260" fill="#007048" />
 </svg>

@@ -7,7 +7,9 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "deploy:local": "hardhat run scripts/deploy.ts --network hardhat",
-    "deploy:bohr": "hardhat run scripts/deploy.ts --network bohrTestnet",
+    "deploy:mainnet": "hardhat run scripts/deploy.ts --network botchainMainnet",
+    "deploy": "hardhat run scripts/deploy.ts --network botchainMainnet",
+    "verify:mainnet": "hardhat verify --network botchainMainnet 0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688 \"0x83acc57bb9CDe889b248E9c740F5248637cd89f4\" \"0x0000000000000000000000000000000000000000\" \"0x0000000000000000000000000000000000000000\" \"0x2ce45ff1847273f0fd11714744c4f238d004e026\"",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

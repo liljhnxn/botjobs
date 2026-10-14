@@ -86,7 +86,7 @@ export function parseContractError(err: unknown): string {
     return "The BotJobs marketplace contract is currently paused.";
   }
   if (msg.includes("fetch") || msg.includes("HTTP request failed")) {
-    return "RPC connection failed. Please verify https://rpc.bohr.life is reachable.";
+    return "RPC connection failed. Please verify https://rpc.botchain.ai is reachable.";
   }
 
   const shortMatch = msg.match(/Details:\s*(.+)/i) || msg.match(/reason:\s*(.+)/i);

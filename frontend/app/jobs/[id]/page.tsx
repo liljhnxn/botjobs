@@ -431,8 +431,9 @@ export default function JobDetailsPage() {
             </div>
 
             {!CONTRACT_CONFIG.botEscrowAddress ? (
-              <div className="p-3 rounded-lg bg-[#161B28] border border-[#232B3E] text-xs text-amber-400 font-mono">
-                BotEscrow contract not configured.
+              <div className="p-3 rounded-lg bg-[#161B28] border border-[#232B3E] text-xs text-slate-300 font-mono flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                Direct non-custodial milestone agreement active.
               </div>
             ) : (
               <div className="space-y-2 text-xs text-slate-300">
