@@ -85,10 +85,9 @@
 
 ---
 
-## Slide 9: Traction & Live Deployment
-### Deployed & Live on Botchain Mainnet (Chain ID 677)
-- **BotJobs Contract**: `0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688`
-- **BotNS Contract**: `0x2ce45ff1847273f0fd11714744c4f238d004e026`
+## Slide 9: Traction & Architecture
+### Built for Botchain Mainnet (Chain ID 677)
+- **Smart Contracts**: `BotJobs.sol`, `IBotEscrow`, `IBotRepute`, `IBotNS`
 - **Frontend**: Full-featured Next.js 14 Web3 dApp with responsive UI and real-time transaction state tracking.
 
 ---
@@ -105,4 +104,4 @@
 - **GitHub**: [https://github.com/liljhnxn/botjobs](https://github.com/liljhnxn/botjobs)
 - **Whitepaper**: [https://github.com/liljhnxn/botjobs/blob/main/WHITEPAPER.md](https://github.com/liljhnxn/botjobs/blob/main/WHITEPAPER.md)
 - **Pitch Deck**: [https://github.com/liljhnxn/botjobs/blob/main/PITCH_DECK.md](https://github.com/liljhnxn/botjobs/blob/main/PITCH_DECK.md)
-- **Explorer**: [https://scan.botchain.ai/address/0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688](https://scan.botchain.ai/address/0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688)
+- **Explorer**: [https://scan.botchain.ai](https://scan.botchain.ai)

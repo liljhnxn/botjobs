@@ -6,7 +6,10 @@ dotenv.config();
 async function main() {
   const [deployer] = await ethers.getSigners();
   const provider = ethers.provider;
-  const contractAddress = process.env.BOTJOBS_CONTRACT_ADDRESS || "0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688";
+  const contractAddress = process.env.BOTJOBS_CONTRACT_ADDRESS;
+  if (!contractAddress) {
+    throw new Error("BOTJOBS_CONTRACT_ADDRESS must be set in your .env file.");
+  }
   const botJobs = await ethers.getContractAt("BotJobs", contractAddress, deployer);
 
   console.log("==================================================");

@@ -256,7 +256,7 @@ export default function BrowseJobsPage() {
             Failed to load jobs from Botchain
           </p>
           <p className="text-xs text-slate-400">
-            Please verify that the contract address is deployed on Chain ID 968 and RPC is reachable.
+            Please verify that the contract address is deployed on Botchain Mainnet (Chain ID 677) and RPC is reachable.
           </p>
         </div>
       ) : filteredJobs.length === 0 ? (

@@ -6,6 +6,7 @@ import { WagmiProvider } from "wagmi";
 import { wagmiConfig } from "../config/wagmi";
 
 export function Web3Providers({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = React.useState(false);
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -18,9 +19,15 @@ export function Web3Providers({ children }: { children: React.ReactNode }) {
       })
   );
 
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <WagmiProvider config={wagmiConfig}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        {mounted ? children : null}
+      </QueryClientProvider>
     </WagmiProvider>
   );
 }

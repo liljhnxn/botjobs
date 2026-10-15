@@ -138,8 +138,8 @@ All contracts are deployed and operational on the **Botchain Mainnet**:
 | **Native Currency** | `BOT` |
 
 ### Core Protocol Contracts
-- **BotJobs Contract**: [`0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688`](https://scan.botchain.ai/address/0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688)
-- **BotNS Contract**: [`0x2ce45ff1847273f0fd11714744c4f238d004e026`](https://scan.botchain.ai/address/0x2ce45ff1847273f0fd11714744c4f238d004e026)
+- **BotJobs Contract**: Configured via `BOTJOBS_CONTRACT_ADDRESS` / `NEXT_PUBLIC_BOTJOBS_ADDRESS`
+- **BotNS Contract**: Configured via `BOTNS_CONTRACT_ADDRESS` / `NEXT_PUBLIC_BOT_NS_ADDRESS`
 - **BotEscrow Contract**: Configurable via admin `setEcosystemContracts()`
 - **BotRepute Contract**: Configurable via admin `setEcosystemContracts()`
 
