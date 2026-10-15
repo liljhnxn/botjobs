@@ -39,6 +39,11 @@ import { BotchainLogo } from "./BotchainLogo";
 export function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const { address, isConnected, chainId } = useAccount();
   const { connect, connectors, isPending: isConnecting } = useConnect();
@@ -48,6 +53,9 @@ export function Navbar() {
   const { data: balanceData } = useBalance({
     address,
     chainId: BOTCHAIN_CHAIN_ID,
+    query: {
+      enabled: Boolean(address),
+    },
   });
 
   const { botName } = useBotNSResolution(address);
@@ -73,7 +81,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#232B3E] bg-[#090B10]/90 backdrop-blur-md">
-      {isWrongNetwork && (
+      {mounted && isWrongNetwork && (
         <div className="bg-amber-500/15 border-b border-amber-500/30 px-4 py-2 text-xs text-amber-300 flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-2">
             <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
@@ -93,25 +101,25 @@ export function Navbar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-lg bg-black border border-emerald-500/40 flex items-center justify-center p-1.5 group-hover:border-emerald-400 transition-colors shadow-sm shadow-emerald-500/10">
-              <BotchainLogo className="w-full h-full" />
-            </div>
-            <div>
+          <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="w-9 h-9 rounded-lg bg-black border border-emerald-500/40 flex items-center justify-center p-1.5 group-hover:border-emerald-400 transition-colors shadow-sm shadow-emerald-500/10">
+                <BotchainLogo className="w-full h-full" />
+              </div>
               <span className="font-bold text-white tracking-tight text-lg">
                 Bot<span className="text-emerald-400">Jobs</span>
               </span>
-              <a
-                href={BOTCHAIN_EXPLORER_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="View on Botchain Explorer"
-                className="hidden sm:inline-flex items-center gap-1 ml-2 px-2 py-0.5 text-[10px] font-mono rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors"
-              >
-                Mainnet 677
-              </a>
-            </div>
-          </Link>
+            </Link>
+            <a
+              href={BOTCHAIN_EXPLORER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="View on Botchain Explorer"
+              className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors"
+            >
+              Mainnet 677
+            </a>
+          </div>
 
           <nav className="hidden xl:flex items-center gap-1">
             {navItems.map((item) => {
@@ -155,7 +163,9 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          {isConnected && address ? (
+          {!mounted ? (
+            <div className="h-9 w-28 rounded-lg bg-[#161B28] border border-[#232B3E] animate-pulse" />
+          ) : isConnected && address ? (
             <div className="flex items-center gap-2">
               <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#11151F] border border-[#232B3E] text-xs">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />

@@ -7,5 +7,5 @@ export const wagmiConfig = createConfig({
   transports: {
     [botchainMainnet.id]: http(BOTCHAIN_RPC_URL),
   },
-  ssr: true,
+  ssr: false,
 });

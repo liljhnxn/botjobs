@@ -5,27 +5,41 @@ import {
   BOTCHAIN_EXPLORER_URL,
 } from "../config/network";
 
-function parseConfiguredAddress(envValue?: string): Address | undefined {
-  if (!envValue) return undefined;
+export const DEFAULT_BOTJOBS_MAINNET_ADDRESS: Address =
+  "0x9b5210dC02E7C0f363B1094FA9107Fd6001C8688";
+export const DEFAULT_BOTNS_MAINNET_ADDRESS: Address =
+  "0x2ce45ff1847273f0fd11714744c4f238d004e026";
+
+function parseConfiguredAddress(
+  envValue?: string,
+  fallback?: Address
+): Address | undefined {
+  if (!envValue) return fallback;
   const trimmed = envValue.trim();
   if (!trimmed || trimmed === "0x0000000000000000000000000000000000000000") {
-    return undefined;
+    return fallback;
   }
-  return isAddress(trimmed) ? (trimmed as Address) : undefined;
+  return isAddress(trimmed) ? (trimmed as Address) : fallback;
 }
 
 export const CONTRACT_CONFIG = {
   chainId: BOTCHAIN_CHAIN_ID,
   rpcUrl: BOTCHAIN_RPC_URL,
   explorerUrl: BOTCHAIN_EXPLORER_URL,
-  botJobsAddress: parseConfiguredAddress(process.env.NEXT_PUBLIC_BOTJOBS_ADDRESS),
+  botJobsAddress: parseConfiguredAddress(
+    process.env.NEXT_PUBLIC_BOTJOBS_ADDRESS,
+    DEFAULT_BOTJOBS_MAINNET_ADDRESS
+  ),
   botEscrowAddress: parseConfiguredAddress(
     process.env.NEXT_PUBLIC_BOT_ESCROW_ADDRESS
   ),
   botReputeAddress: parseConfiguredAddress(
     process.env.NEXT_PUBLIC_BOT_REPUTE_ADDRESS
   ),
-  botNSAddress: parseConfiguredAddress(process.env.NEXT_PUBLIC_BOT_NS_ADDRESS),
+  botNSAddress: parseConfiguredAddress(
+    process.env.NEXT_PUBLIC_BOT_NS_ADDRESS,
+    DEFAULT_BOTNS_MAINNET_ADDRESS
+  ),
 } as const;
 
 export const JOB_CATEGORIES = [
